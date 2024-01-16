@@ -272,7 +272,7 @@ The process is the same as above. You need to generate the library:
 ```
   docker run --rm \
   -v ${PWD}:/local openapitools/openapi-generator-cli generate \
-  -i /local/FlightOffersSearch_v2_swagger_specification.yaml \
+  -i /local/FlightOffersSearch_v3_swagger_specification.yaml \
   -g python \
   -o /local/flights
 ```
