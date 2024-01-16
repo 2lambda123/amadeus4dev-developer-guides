@@ -6,7 +6,7 @@ At Amadeus, we are following the contract-first approach to API development, whi
 
 ## Amadeus OpenAPI specification
 
-We have a [dedicated GitHub repository](https://github.com/amadeus4dev/amadeus-open-api-specification){:target="\_blank"} where you can find OpenAPI specification files for all our Self-Serving APIs. The OpenAPI Generator can easily consume these files to output a dedicated SDK for any of the [languages](https://openapi-generator.tech/docs/generators){:target="\_blank"} that it supports.
+We have a [dedicated GitHub repository](https://github.com/amadeus4dev/amadeus4dev-developer-guides/tree/main/openapi-specs){:target="\_blank"} where you can find OpenAPI specification files for all our Self-Serving APIs. The OpenAPI Generator can easily consume these files to output a dedicated SDK for any of the [languages](https://openapi-generator.tech/docs/generators){:target="\_blank"} that it supports.
 
 ### How to create an SDK from Amadeus OpenAPI specification
 
@@ -22,7 +22,7 @@ There are many ways to [set up](https://openapi-generator.tech/docs/installation
 
 #### Step 2. Downloading the OpenAPI specification for the City Search API
 
-Navigate to the [Amadeus OpenAPI Specification](https://github.com/amadeus4dev/amadeus-open-api-specification){:target="\_blank"} and download the JSON file for the [City Search API specification](https://github.com/amadeus4dev/amadeus-open-api-specification/blob/main/spec/json/CitySearch_v1_swagger_specification.json){:target="\_blank"}. 
+Navigate to the [Amadeus OpenAPI Specification](https://github.com/amadeus4dev/amadeus-open-api-specification){:target="\_blank"} and download the JSON file for the [City Search API specification](https://github.com/amadeus4dev/amadeus4dev-developer-guides/blob/main/openapi-specs/CitySearch_v1_swagger_specification.json){:target="\_blank"}. 
 
 !!! information
     You can use both JSON and YAML files with the OpenAPI Generator. 
@@ -37,7 +37,7 @@ Navigate to the directory where you downloaded the City Search API specification
 ```shell
 docker run --rm \
   -v ${PWD}:/local openapitools/openapi-generator-cli generate \
-  -i /local/CitySearch_v1_swagger_specification.json \
+  -i /local/CitySearch_v1_swagger_specification.yaml \
   -g ruby \
   -o /local/city_search_ruby
 ```
