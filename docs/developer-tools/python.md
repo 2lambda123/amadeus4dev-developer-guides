@@ -62,10 +62,12 @@ amadeus = Client(
 )
 
 try:
-    response = amadeus.reference_data.locations.get(
-        keyword='LON',
-        subType=Location.AIRPORT
-    )    
+    response = # Search for locations with a specific keyword and location subtype
+# Returns a list of locations that match the query
+response = amadeus.reference_data.locations.get(
+    keyword='LON',
+    subType=Location.AIRPORT
+)    
     print(response.data)
 except ResponseError as error:
     print(error)
