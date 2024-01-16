@@ -257,6 +257,19 @@ with openapi_client.ApiClient(auth_configuration) as api_client:
     )
 
 print(api_response.body['access_token'])
+with openapi_client.ApiClient(auth_configuration) as api_client:
+    api_instance = o_auth2_access_token_api.OAuth2AccessTokenApi(api_client)
+
+    body = dict(
+        grant_type="client_credentials",
+        client_id="YOUR_API_KEY",
+        client_secret="YOUR_API_SECRET",
+    )
+    api_response = api_instance.oauth2_token(
+        body=body,
+    )
+
+print(api_response.body['access_token'])
 ```
 
 The code uses the library we have generated to get an OAuth2 access token. With the `o_auth2_access_token_api.OAuth2AccessTokenApi()` we are able to call the `oauth2_token()` method.
