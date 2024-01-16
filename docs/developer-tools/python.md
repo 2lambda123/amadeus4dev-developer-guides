@@ -102,7 +102,7 @@ amadeus.get('/v2/reference-data/urls/checkin-links', airlineCode='BA')
 For the `post` endpoints:
 
 ```python
-amadeus.post('/v1/shopping/flight-offers/pricing', body)
+amadeus.post('/v1/shopping/flight-offers/pricing', json=body)
 
 ```
 
