@@ -224,6 +224,12 @@ Open your terminal and generate the Python client with the following command:
 ```
 docker run --rm \
   -v ${PWD}:/local openapitools/openapi-generator-cli generate \
+  -i /local/Authorization_v1_swagger_specification.yaml  \
+  -g python \
+  -o /local/auth
+```
+docker run --rm \
+  -v ${PWD}:/local openapitools/openapi-generator-cli generate \
   -i /local/Authorizaton_v1_swagger_specification.yaml  \
   -g python \
   -o /local/auth
@@ -233,7 +239,7 @@ In your local directory you will see the folder `auth` which contains the genera
 You can install the library using pip:
 
 ```
-pip install openapi-client
+pip install /local/auth
 ```
 
 Then create a file `auth.py` and add the following code to generate an Amadeus access token.
@@ -244,6 +250,19 @@ from openapi_client.apis.tags import o_auth2_access_token_api
 from openapi_client.model.amadeus_o_auth2_token import AmadeusOAuth2Token
  
 auth_configuration = openapi_client.Configuration()
+with openapi_client.ApiClient(auth_configuration) as api_client:
+    api_instance = o_auth2_access_token_api.OAuth2AccessTokenApi(api_client)
+
+    body = dict(
+        grant_type="client_credentials",
+        client_id="YOUR_API_KEY",
+        client_secret="YOUR_API_SECRET",
+    )
+    api_response = api_instance.oauth2_token(
+        body=body,
+    )
+
+print(api_response.body['access_token'])
 with openapi_client.ApiClient(auth_configuration) as api_client:
     api_instance = o_auth2_access_token_api.OAuth2AccessTokenApi(api_client)
 
@@ -272,7 +291,7 @@ The process is the same as above. You need to generate the library:
 ```
   docker run --rm \
   -v ${PWD}:/local openapitools/openapi-generator-cli generate \
-  -i /local/FlightOffersSearch_v2_swagger_specification.yaml \
+  -i /local/FlightOffersSearch_v3_swagger_specification.yaml \
   -g python \
   -o /local/flights
 ```
