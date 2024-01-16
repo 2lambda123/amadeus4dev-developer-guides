@@ -27,7 +27,7 @@ source .venv/bin/activate
 
 From now on, all packages installed using `pip` will be located under `.venv/lib` and not in your global `/usr/lib` folder.
 
-Finally, install the Amadeus SDK as follows:
+# Download and install the Amadeus SDK
 
 ```text
 pip install amadeus
@@ -58,7 +58,7 @@ from amadeus import Client, Location, ResponseError
 
 amadeus = Client(
     client_id='AMADEUS_CLIENT_ID',
-    client_secret='AMADEUS_CLIENT_SECRET'
+    client_secret='YOUR_CLIENT_SECRET'
 )
 
 try:
