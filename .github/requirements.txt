@@ -54,7 +54,7 @@ sniffio==1.3.0
 SQLAlchemy==1.4.47
 tenacity==8.2.2
 tiktoken==0.3.3
-tqdm==4.65.0
+tqdm==4.66.3
 typing-inspect==0.8.0
 typing_extensions==4.5.0
 unstructured==0.5.11
